@@ -7,9 +7,9 @@ import pytest
 import pydantic
 from pydantic import Field
 
-from hfpy._utils import PropertyInfo
-from hfpy._compat import PYDANTIC_V1, parse_obj, model_dump, model_json
-from hfpy._models import BaseModel, construct_type
+from pyhfapi._utils import PropertyInfo
+from pyhfapi._compat import PYDANTIC_V1, parse_obj, model_dump, model_json
+from pyhfapi._models import BaseModel, construct_type
 
 
 class BasicModel(BaseModel):

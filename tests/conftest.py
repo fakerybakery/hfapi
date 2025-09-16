@@ -10,15 +10,15 @@ import httpx
 import pytest
 from pytest_asyncio import is_async_test
 
-from hfpy import HuggingFace, AsyncHuggingFace, DefaultAioHttpClient
-from hfpy._utils import is_dict
+from pyhfapi import HuggingFace, AsyncHuggingFace, DefaultAioHttpClient
+from pyhfapi._utils import is_dict
 
 if TYPE_CHECKING:
     from _pytest.fixtures import FixtureRequest  # pyright: ignore[reportPrivateImportUsage]
 
 pytest.register_assert_rewrite("tests.utils")
 
-logging.getLogger("hfpy").setLevel(logging.DEBUG)
+logging.getLogger("pyhfapi").setLevel(logging.DEBUG)
 
 
 # automatically add `pytest.mark.asyncio()` to all of our async tests
