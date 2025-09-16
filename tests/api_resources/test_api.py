@@ -7,15 +7,15 @@ from typing import Any, cast
 
 import pytest
 
-from hfpy import HuggingFace, AsyncHuggingFace
-from hfpy.types import (
+from pyhfapi import HuggingFace, AsyncHuggingFace
+from tests.utils import assert_matches_type
+from pyhfapi.types import (
     APIGetUserInfoResponse,
     APIGetModelTagsResponse,
     APIGetDailyPapersResponse,
     APIGetDatasetTagsResponse,
 )
-from hfpy._utils import parse_date
-from tests.utils import assert_matches_type
+from pyhfapi._utils import parse_date
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

@@ -8,7 +8,7 @@ from datetime import date, datetime, timezone, timedelta
 
 import pytest
 
-from hfpy._utils import parse_date, parse_datetime
+from pyhfapi._utils import parse_date, parse_datetime
 
 
 def create_tz(minutes: int) -> timezone:

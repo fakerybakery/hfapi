@@ -7,9 +7,14 @@ from typing import Any, cast
 
 import pytest
 
-from hfpy import HuggingFace, AsyncHuggingFace
+from pyhfapi import HuggingFace, AsyncHuggingFace
 from tests.utils import assert_matches_type
-from hfpy.types.api import JobListResponse, JobStartResponse, JobCancelResponse, JobRetrieveResponse
+from pyhfapi.types.api import (
+    JobListResponse,
+    JobStartResponse,
+    JobCancelResponse,
+    JobRetrieveResponse,
+)
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

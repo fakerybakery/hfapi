@@ -8,15 +8,15 @@ from typing_extensions import Required, Annotated, TypedDict
 
 import pytest
 
-from hfpy._types import NOT_GIVEN, Base64FileInput
-from hfpy._utils import (
+from pyhfapi._types import NOT_GIVEN, Base64FileInput
+from pyhfapi._utils import (
     PropertyInfo,
     transform as _transform,
     parse_datetime,
     async_transform as _async_transform,
 )
-from hfpy._compat import PYDANTIC_V1
-from hfpy._models import BaseModel
+from pyhfapi._compat import PYDANTIC_V1
+from pyhfapi._models import BaseModel
 
 _T = TypeVar("_T")
 

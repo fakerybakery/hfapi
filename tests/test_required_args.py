@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from hfpy._utils import required_args
+from pyhfapi._utils import required_args
 
 
 def test_too_many_positional_params() -> None:
