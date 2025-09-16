@@ -6,8 +6,8 @@ import httpx
 import pytest
 import pydantic
 
-from hfpy import BaseModel, HuggingFace, AsyncHuggingFace
-from hfpy._response import (
+from pyhfapi import BaseModel, HuggingFace, AsyncHuggingFace
+from pyhfapi._response import (
     APIResponse,
     BaseAPIResponse,
     AsyncAPIResponse,
@@ -15,8 +15,8 @@ from hfpy._response import (
     AsyncBinaryAPIResponse,
     extract_response_type,
 )
-from hfpy._streaming import Stream
-from hfpy._base_client import FinalRequestOptions
+from pyhfapi._streaming import Stream
+from pyhfapi._base_client import FinalRequestOptions
 
 
 class ConcreteBaseAPIResponse(APIResponse[bytes]): ...
@@ -37,7 +37,7 @@ def test_extract_response_type_direct_classes() -> None:
 def test_extract_response_type_direct_class_missing_type_arg() -> None:
     with pytest.raises(
         RuntimeError,
-        match="Expected type <class 'hfpy._response.AsyncAPIResponse'> to have a type argument at index 0 but it did not",
+        match="Expected type <class 'pyhfapi._response.AsyncAPIResponse'> to have a type argument at index 0 but it did not",
     ):
         extract_response_type(AsyncAPIResponse)
 
@@ -68,7 +68,7 @@ def test_response_parse_mismatched_basemodel(client: HuggingFace) -> None:
 
     with pytest.raises(
         TypeError,
-        match="Pydantic models must subclass our base model type, e.g. `from hfpy import BaseModel`",
+        match="Pydantic models must subclass our base model type, e.g. `from pyhfapi import BaseModel`",
     ):
         response.parse(to=PydanticModel)
 
@@ -86,7 +86,7 @@ async def test_async_response_parse_mismatched_basemodel(async_client: AsyncHugg
 
     with pytest.raises(
         TypeError,
-        match="Pydantic models must subclass our base model type, e.g. `from hfpy import BaseModel`",
+        match="Pydantic models must subclass our base model type, e.g. `from pyhfapi import BaseModel`",
     ):
         await response.parse(to=PydanticModel)
 

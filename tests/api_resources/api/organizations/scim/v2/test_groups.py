@@ -7,9 +7,9 @@ from typing import Any, cast
 
 import pytest
 
-from hfpy import HuggingFace, AsyncHuggingFace
+from pyhfapi import HuggingFace, AsyncHuggingFace
 from tests.utils import assert_matches_type
-from hfpy.types.api.organizations.scim.v2 import (
+from pyhfapi.types.api.organizations.scim.v2 import (
     GroupListResponse,
     GroupCreateResponse,
     GroupUpdateResponse,

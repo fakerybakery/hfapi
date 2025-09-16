@@ -18,12 +18,12 @@ import pytest
 from respx import MockRouter
 from pydantic import ValidationError
 
-from hfpy import HuggingFace, AsyncHuggingFace, APIResponseValidationError
-from hfpy._types import Omit
-from hfpy._utils import asyncify
-from hfpy._models import BaseModel, FinalRequestOptions
-from hfpy._exceptions import APIStatusError, APITimeoutError, HuggingFaceError, APIResponseValidationError
-from hfpy._base_client import (
+from pyhfapi import HuggingFace, AsyncHuggingFace, APIResponseValidationError
+from pyhfapi._types import Omit
+from pyhfapi._utils import asyncify
+from pyhfapi._models import BaseModel, FinalRequestOptions
+from pyhfapi._exceptions import APIStatusError, APITimeoutError, HuggingFaceError, APIResponseValidationError
+from pyhfapi._base_client import (
     DEFAULT_TIMEOUT,
     HTTPX_DEFAULT_TIMEOUT,
     BaseClient,
@@ -232,10 +232,10 @@ class TestHuggingFace:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "hfpy/_legacy_response.py",
-                        "hfpy/_response.py",
+                        "pyhfapi/_legacy_response.py",
+                        "pyhfapi/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "hfpy/_compat.py",
+                        "pyhfapi/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -721,7 +721,7 @@ class TestHuggingFace:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_timeout_errors_doesnt_leak(self, respx_mock: MockRouter, client: HuggingFace) -> None:
         respx_mock.get("/api/notifications").mock(side_effect=httpx.TimeoutException("Test timeout error"))
@@ -731,7 +731,7 @@ class TestHuggingFace:
 
         assert _get_open_connections(self.client) == 0
 
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_retrying_status_errors_doesnt_leak(self, respx_mock: MockRouter, client: HuggingFace) -> None:
         respx_mock.get("/api/notifications").mock(return_value=httpx.Response(500))
@@ -741,7 +741,7 @@ class TestHuggingFace:
         assert _get_open_connections(self.client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.parametrize("failure_mode", ["status", "exception"])
     def test_retries_taken(
@@ -772,7 +772,7 @@ class TestHuggingFace:
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_omit_retry_count_header(
         self, client: HuggingFace, failures_before_success: int, respx_mock: MockRouter
@@ -795,7 +795,7 @@ class TestHuggingFace:
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     def test_overwrite_retry_count_header(
         self, client: HuggingFace, failures_before_success: int, respx_mock: MockRouter
@@ -1043,10 +1043,10 @@ class TestAsyncHuggingFace:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "hfpy/_legacy_response.py",
-                        "hfpy/_response.py",
+                        "pyhfapi/_legacy_response.py",
+                        "pyhfapi/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "hfpy/_compat.py",
+                        "pyhfapi/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -1536,7 +1536,7 @@ class TestAsyncHuggingFace:
         calculated = client._calculate_retry_timeout(remaining_retries, options, headers)
         assert calculated == pytest.approx(timeout, 0.5 * 0.875)  # pyright: ignore[reportUnknownMemberType]
 
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_timeout_errors_doesnt_leak(
         self, respx_mock: MockRouter, async_client: AsyncHuggingFace
@@ -1548,7 +1548,7 @@ class TestAsyncHuggingFace:
 
         assert _get_open_connections(self.client) == 0
 
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     async def test_retrying_status_errors_doesnt_leak(
         self, respx_mock: MockRouter, async_client: AsyncHuggingFace
@@ -1560,7 +1560,7 @@ class TestAsyncHuggingFace:
         assert _get_open_connections(self.client) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
     @pytest.mark.parametrize("failure_mode", ["status", "exception"])
@@ -1592,7 +1592,7 @@ class TestAsyncHuggingFace:
         assert int(response.http_request.headers.get("x-stainless-retry-count")) == failures_before_success
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
     async def test_omit_retry_count_header(
@@ -1618,7 +1618,7 @@ class TestAsyncHuggingFace:
         assert len(response.http_request.headers.get_list("x-stainless-retry-count")) == 0
 
     @pytest.mark.parametrize("failures_before_success", [0, 2, 4])
-    @mock.patch("hfpy._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
+    @mock.patch("pyhfapi._base_client.BaseClient._calculate_retry_timeout", _low_retry_timeout)
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
     async def test_overwrite_retry_count_header(

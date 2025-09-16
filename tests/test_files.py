@@ -4,7 +4,7 @@ import anyio
 import pytest
 from dirty_equals import IsDict, IsList, IsBytes, IsTuple
 
-from hfpy._files import to_httpx_files, async_to_httpx_files
+from pyhfapi._files import to_httpx_files, async_to_httpx_files
 
 readme_path = Path(__file__).parent.parent.joinpath("README.md")
 

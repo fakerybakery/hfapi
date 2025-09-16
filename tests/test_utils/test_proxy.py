@@ -2,7 +2,7 @@ import operator
 from typing import Any
 from typing_extensions import override
 
-from hfpy._utils import LazyProxy
+from pyhfapi._utils import LazyProxy
 
 
 class RecursiveLazyProxy(LazyProxy[Any]):

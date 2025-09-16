@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0 (2025-09-16)
+
+Full Changelog: [v1.0.0...v1.1.0](https://github.com/fakerybakery/hfapi/compare/v1.0.0...v1.1.0)
+
+### Features
+
+* **api:** update package name to pyhfapi ([a00af0b](https://github.com/fakerybakery/hfapi/commit/a00af0bdfb492f9dc8a5e378a10b22c8978f9353))
+
 ## 1.0.0 (2025-09-16)
 
 Full Changelog: [v0.0.1...v1.0.0](https://github.com/fakerybakery/hfapi/compare/v0.0.1...v1.0.0)
