@@ -1,7 +1,7 @@
 # Hugging Face Python API library
 
 <!-- prettier-ignore -->
-[![PyPI version](https://img.shields.io/pypi/v/hfpy.svg?label=pypi%20(stable))](https://pypi.org/project/hfpy/)
+[![PyPI version](https://img.shields.io/pypi/v/pyhfapi.svg?label=pypi%20(stable))](https://pypi.org/project/pyhfapi/)
 
 The Hugging Face Python library provides convenient access to the Hugging Face REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
@@ -16,12 +16,9 @@ The full API of this library can be found in [api.md](api.md).
 ## Installation
 
 ```sh
-# install from the production repo
-pip install git+ssh://git@github.com/fakerybakery/hfapi.git
+# install from PyPI
+pip install pyhfapi
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://www.stainless.com/docs/guides/publish), this will become: `pip install hfpy`
 
 ## Usage
 
@@ -75,8 +72,8 @@ By default, the async client uses `httpx` for HTTP requests. However, for improv
 You can enable this by installing `aiohttp`:
 
 ```sh
-# install from the production repo
-pip install 'hfpy[aiohttp] @ git+ssh://git@github.com/fakerybakery/hfapi.git'
+# install from PyPI
+pip install pyhfapi[aiohttp]
 ```
 
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
