@@ -7,12 +7,9 @@ from typing import Any, cast
 
 import pytest
 
+from hfpy import HuggingFace, AsyncHuggingFace
 from tests.utils import assert_matches_type
-from hugging_face import HuggingFace, AsyncHuggingFace
-from hugging_face.types.api.datasets import (
-    ResourceGroupAddResponse,
-    ResourceGroupGetResponse,
-)
+from hfpy.types.api.datasets import ResourceGroupAddResponse, ResourceGroupGetResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

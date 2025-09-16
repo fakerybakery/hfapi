@@ -7,9 +7,9 @@ import pytest
 import pydantic
 from pydantic import Field
 
-from hugging_face._utils import PropertyInfo
-from hugging_face._compat import PYDANTIC_V1, parse_obj, model_dump, model_json
-from hugging_face._models import BaseModel, construct_type
+from hfpy._utils import PropertyInfo
+from hfpy._compat import PYDANTIC_V1, parse_obj, model_dump, model_json
+from hfpy._models import BaseModel, construct_type
 
 
 class BasicModel(BaseModel):

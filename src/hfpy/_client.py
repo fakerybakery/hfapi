@@ -83,13 +83,13 @@ class HuggingFace(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous HuggingFace client instance.
 
-        This automatically infers the `api_key` argument from the `HUGGING_FACE_API_KEY` environment variable if it is not provided.
+        This automatically infers the `api_key` argument from the `HF_TOKEN` environment variable if it is not provided.
         """
         if api_key is None:
-            api_key = os.environ.get("HUGGING_FACE_API_KEY")
+            api_key = os.environ.get("HF_TOKEN")
         if api_key is None:
             raise HuggingFaceError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the HUGGING_FACE_API_KEY environment variable"
+                "The api_key client option must be set either by passing api_key to the client or by setting the HF_TOKEN environment variable"
             )
         self.api_key = api_key
 
@@ -263,13 +263,13 @@ class AsyncHuggingFace(AsyncAPIClient):
     ) -> None:
         """Construct a new async AsyncHuggingFace client instance.
 
-        This automatically infers the `api_key` argument from the `HUGGING_FACE_API_KEY` environment variable if it is not provided.
+        This automatically infers the `api_key` argument from the `HF_TOKEN` environment variable if it is not provided.
         """
         if api_key is None:
-            api_key = os.environ.get("HUGGING_FACE_API_KEY")
+            api_key = os.environ.get("HF_TOKEN")
         if api_key is None:
             raise HuggingFaceError(
-                "The api_key client option must be set either by passing api_key to the client or by setting the HUGGING_FACE_API_KEY environment variable"
+                "The api_key client option must be set either by passing api_key to the client or by setting the HF_TOKEN environment variable"
             )
         self.api_key = api_key
 

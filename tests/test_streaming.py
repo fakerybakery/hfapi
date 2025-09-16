@@ -5,8 +5,8 @@ from typing import Iterator, AsyncIterator
 import httpx
 import pytest
 
-from hugging_face import HuggingFace, AsyncHuggingFace
-from hugging_face._streaming import Stream, AsyncStream, ServerSentEvent
+from hfpy import HuggingFace, AsyncHuggingFace
+from hfpy._streaming import Stream, AsyncStream, ServerSentEvent
 
 
 @pytest.mark.asyncio

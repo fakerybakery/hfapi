@@ -7,17 +7,17 @@ from ._proxy import LazyProxy
 
 
 class ResourcesProxy(LazyProxy[Any]):
-    """A proxy for the `hugging_face.resources` module.
+    """A proxy for the `hfpy.resources` module.
 
-    This is used so that we can lazily import `hugging_face.resources` only when
-    needed *and* so that users can just import `hugging_face` and reference `hugging_face.resources`
+    This is used so that we can lazily import `hfpy.resources` only when
+    needed *and* so that users can just import `hfpy` and reference `hfpy.resources`
     """
 
     @override
     def __load__(self) -> Any:
         import importlib
 
-        mod = importlib.import_module("hugging_face.resources")
+        mod = importlib.import_module("hfpy.resources")
         return mod
 
 
