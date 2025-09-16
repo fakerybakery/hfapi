@@ -8,8 +8,8 @@ from typing import Any, TypeVar, Iterator, Sequence, cast
 from datetime import date, datetime
 from typing_extensions import Literal, get_args, get_origin, assert_type
 
-from hugging_face._types import Omit, NoneType
-from hugging_face._utils import (
+from hfpy._types import Omit, NoneType
+from hfpy._utils import (
     is_dict,
     is_list,
     is_list_type,
@@ -19,8 +19,8 @@ from hugging_face._utils import (
     is_annotated_type,
     is_type_alias_type,
 )
-from hugging_face._compat import PYDANTIC_V1, field_outer_type, get_model_fields
-from hugging_face._models import BaseModel
+from hfpy._compat import PYDANTIC_V1, field_outer_type, get_model_fields
+from hfpy._models import BaseModel
 
 BaseModelT = TypeVar("BaseModelT", bound=BaseModel)
 

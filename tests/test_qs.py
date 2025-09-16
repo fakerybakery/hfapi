@@ -4,7 +4,7 @@ from urllib.parse import unquote
 
 import pytest
 
-from hugging_face._qs import Querystring, stringify
+from hfpy._qs import Querystring, stringify
 
 
 def test_empty() -> None:

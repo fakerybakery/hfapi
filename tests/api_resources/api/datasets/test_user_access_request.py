@@ -7,9 +7,9 @@ from typing import Any, cast
 
 import pytest
 
+from hfpy import HuggingFace, AsyncHuggingFace
 from tests.utils import assert_matches_type
-from hugging_face import HuggingFace, AsyncHuggingFace
-from hugging_face.types.api.datasets import (
+from hfpy.types.api.datasets import (
     UserAccessRequestListResponse,
 )
 

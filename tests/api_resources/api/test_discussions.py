@@ -7,10 +7,10 @@ from typing import Any, cast
 
 import pytest
 
+from hfpy import HuggingFace, AsyncHuggingFace
+from hfpy._utils import parse_datetime
 from tests.utils import assert_matches_type
-from hugging_face import HuggingFace, AsyncHuggingFace
-from hugging_face._utils import parse_datetime
-from hugging_face.types.api import (
+from hfpy.types.api import (
     DiscussionListResponse,
     DiscussionCreateResponse,
     DiscussionRetrieveResponse,

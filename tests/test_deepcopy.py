@@ -1,4 +1,4 @@
-from hugging_face._utils import deepcopy_minimal
+from hfpy._utils import deepcopy_minimal
 
 
 def assert_different_identities(obj1: object, obj2: object) -> None:

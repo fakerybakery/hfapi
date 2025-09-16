@@ -4,8 +4,8 @@ from typing import Sequence
 
 import pytest
 
-from hugging_face._types import FileTypes
-from hugging_face._utils import extract_files
+from hfpy._types import FileTypes
+from hfpy._utils import extract_files
 
 
 def test_removes_files_from_input() -> None:

@@ -7,7 +7,7 @@ from typing import Any, cast
 
 import pytest
 
-from hugging_face import HuggingFace, AsyncHuggingFace
+from hfpy import HuggingFace, AsyncHuggingFace
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
