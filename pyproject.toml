@@ -1,5 +1,5 @@
 [project]
-name = "hfpy"
+name = "pyhfapi"
 version = "0.0.1"
 description = "The official Python library for the hugging-face API"
 dynamic = ["readme"]
