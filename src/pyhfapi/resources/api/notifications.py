@@ -8,7 +8,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NoneType, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -48,21 +48,21 @@ class NotificationsResource(SyncAPIResource):
     def list(
         self,
         *,
-        article_id: str | NotGiven = NOT_GIVEN,
-        last_update: Union[str, datetime] | NotGiven = NOT_GIVEN,
-        mention: Literal["all", "participating", "mentions"] | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        paper_id: str | NotGiven = NOT_GIVEN,
-        post_author: str | NotGiven = NOT_GIVEN,
-        read_status: Literal["all", "unread"] | NotGiven = NOT_GIVEN,
-        repo_name: str | NotGiven = NOT_GIVEN,
-        repo_type: Literal["dataset", "model", "space"] | NotGiven = NOT_GIVEN,
+        article_id: str | Omit = omit,
+        last_update: Union[str, datetime] | Omit = omit,
+        mention: Literal["all", "participating", "mentions"] | Omit = omit,
+        p: int | Omit = omit,
+        paper_id: str | Omit = omit,
+        post_author: str | Omit = omit,
+        read_status: Literal["all", "unread"] | Omit = omit,
+        repo_name: str | Omit = omit,
+        repo_type: Literal["dataset", "model", "space"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> NotificationListResponse:
         """
         List notifications for the user
@@ -104,23 +104,23 @@ class NotificationsResource(SyncAPIResource):
     def delete(
         self,
         *,
-        apply_to_all: object | NotGiven = NOT_GIVEN,
-        article_id: str | NotGiven = NOT_GIVEN,
-        last_update: Union[str, datetime] | NotGiven = NOT_GIVEN,
-        mention: Literal["all", "participating", "mentions"] | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        paper_id: str | NotGiven = NOT_GIVEN,
-        post_author: str | NotGiven = NOT_GIVEN,
-        read_status: Literal["all", "unread"] | NotGiven = NOT_GIVEN,
-        repo_name: str | NotGiven = NOT_GIVEN,
-        repo_type: Literal["dataset", "model", "space"] | NotGiven = NOT_GIVEN,
-        discussion_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        apply_to_all: object | Omit = omit,
+        article_id: str | Omit = omit,
+        last_update: Union[str, datetime] | Omit = omit,
+        mention: Literal["all", "participating", "mentions"] | Omit = omit,
+        p: int | Omit = omit,
+        paper_id: str | Omit = omit,
+        post_author: str | Omit = omit,
+        read_status: Literal["all", "unread"] | Omit = omit,
+        repo_name: str | Omit = omit,
+        repo_type: Literal["dataset", "model", "space"] | Omit = omit,
+        discussion_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Delete notifications, either by specifying discussionIds or by applying to all
@@ -189,21 +189,21 @@ class AsyncNotificationsResource(AsyncAPIResource):
     async def list(
         self,
         *,
-        article_id: str | NotGiven = NOT_GIVEN,
-        last_update: Union[str, datetime] | NotGiven = NOT_GIVEN,
-        mention: Literal["all", "participating", "mentions"] | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        paper_id: str | NotGiven = NOT_GIVEN,
-        post_author: str | NotGiven = NOT_GIVEN,
-        read_status: Literal["all", "unread"] | NotGiven = NOT_GIVEN,
-        repo_name: str | NotGiven = NOT_GIVEN,
-        repo_type: Literal["dataset", "model", "space"] | NotGiven = NOT_GIVEN,
+        article_id: str | Omit = omit,
+        last_update: Union[str, datetime] | Omit = omit,
+        mention: Literal["all", "participating", "mentions"] | Omit = omit,
+        p: int | Omit = omit,
+        paper_id: str | Omit = omit,
+        post_author: str | Omit = omit,
+        read_status: Literal["all", "unread"] | Omit = omit,
+        repo_name: str | Omit = omit,
+        repo_type: Literal["dataset", "model", "space"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> NotificationListResponse:
         """
         List notifications for the user
@@ -245,23 +245,23 @@ class AsyncNotificationsResource(AsyncAPIResource):
     async def delete(
         self,
         *,
-        apply_to_all: object | NotGiven = NOT_GIVEN,
-        article_id: str | NotGiven = NOT_GIVEN,
-        last_update: Union[str, datetime] | NotGiven = NOT_GIVEN,
-        mention: Literal["all", "participating", "mentions"] | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        paper_id: str | NotGiven = NOT_GIVEN,
-        post_author: str | NotGiven = NOT_GIVEN,
-        read_status: Literal["all", "unread"] | NotGiven = NOT_GIVEN,
-        repo_name: str | NotGiven = NOT_GIVEN,
-        repo_type: Literal["dataset", "model", "space"] | NotGiven = NOT_GIVEN,
-        discussion_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
+        apply_to_all: object | Omit = omit,
+        article_id: str | Omit = omit,
+        last_update: Union[str, datetime] | Omit = omit,
+        mention: Literal["all", "participating", "mentions"] | Omit = omit,
+        p: int | Omit = omit,
+        paper_id: str | Omit = omit,
+        post_author: str | Omit = omit,
+        read_status: Literal["all", "unread"] | Omit = omit,
+        repo_name: str | Omit = omit,
+        repo_type: Literal["dataset", "model", "space"] | Omit = omit,
+        discussion_ids: SequenceNotStr[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Delete notifications, either by specifying discussionIds or by applying to all

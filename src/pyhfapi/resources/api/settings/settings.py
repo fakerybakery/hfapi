@@ -14,7 +14,7 @@ from .webhooks import (
     WebhooksResourceWithStreamingResponse,
     AsyncWebhooksResourceWithStreamingResponse,
 )
-from ...._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
+from ...._types import Body, Omit, Query, Headers, NoneType, NotGiven, omit, not_given
 from ...._utils import maybe_transform, async_maybe_transform
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
@@ -75,7 +75,7 @@ class SettingsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SettingGetMcpResponse:
         """Get the MCP tools for the current user"""
         return self._get(
@@ -90,13 +90,13 @@ class SettingsResource(SyncAPIResource):
         self,
         *,
         notifications: setting_update_notifications_params.Notifications,
-        prepaid_amount: str | NotGiven = NOT_GIVEN,
+        prepaid_amount: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Update notification settings for the user
@@ -131,14 +131,14 @@ class SettingsResource(SyncAPIResource):
     def update_watch(
         self,
         *,
-        add: Iterable[setting_update_watch_params.Add] | NotGiven = NOT_GIVEN,
-        delete: Iterable[setting_update_watch_params.Delete] | NotGiven = NOT_GIVEN,
+        add: Iterable[setting_update_watch_params.Add] | Omit = omit,
+        delete: Iterable[setting_update_watch_params.Delete] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """Update watch settings for the user.
 
@@ -207,7 +207,7 @@ class AsyncSettingsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SettingGetMcpResponse:
         """Get the MCP tools for the current user"""
         return await self._get(
@@ -222,13 +222,13 @@ class AsyncSettingsResource(AsyncAPIResource):
         self,
         *,
         notifications: setting_update_notifications_params.Notifications,
-        prepaid_amount: str | NotGiven = NOT_GIVEN,
+        prepaid_amount: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Update notification settings for the user
@@ -263,14 +263,14 @@ class AsyncSettingsResource(AsyncAPIResource):
     async def update_watch(
         self,
         *,
-        add: Iterable[setting_update_watch_params.Add] | NotGiven = NOT_GIVEN,
-        delete: Iterable[setting_update_watch_params.Delete] | NotGiven = NOT_GIVEN,
+        add: Iterable[setting_update_watch_params.Add] | Omit = omit,
+        delete: Iterable[setting_update_watch_params.Delete] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """Update watch settings for the user.
 
