@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ......_types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ......_types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ......_utils import maybe_transform, async_maybe_transform
 from ......_compat import cached_property
 from ......_resource import SyncAPIResource, AsyncAPIResource
@@ -62,13 +62,13 @@ class UsersResource(SyncAPIResource):
         body_name: user_create_params.Name,
         schemas: SequenceNotStr[str],
         user_name: str,
-        active: bool | NotGiven = NOT_GIVEN,
+        active: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserCreateResponse:
         """Creates a new user in the organization.
 
@@ -119,7 +119,7 @@ class UsersResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserRetrieveResponse:
         """
         Retrieves a SCIM user by their ID.
@@ -155,13 +155,13 @@ class UsersResource(SyncAPIResource):
         body_name: user_update_params.Name,
         schemas: SequenceNotStr[str],
         user_name: str,
-        active: bool | NotGiven = NOT_GIVEN,
+        active: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserUpdateResponse:
         """
         Updates a provisioned user, you'll need to provide all their information fresh -
@@ -210,15 +210,15 @@ class UsersResource(SyncAPIResource):
         self,
         name: str,
         *,
-        count: float | NotGiven = NOT_GIVEN,
-        filter: str | NotGiven = NOT_GIVEN,
-        start_index: float | NotGiven = NOT_GIVEN,
+        count: float | Omit = omit,
+        filter: str | Omit = omit,
+        start_index: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserListResponse:
         """
         Retrieves a paginated list of all organization members who have been set up,
@@ -269,7 +269,7 @@ class UsersResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Delete a SCIM user
@@ -307,7 +307,7 @@ class UsersResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserUpdateAttributesResponse:
         """Modify individual attributes using Operations format.
 
@@ -375,13 +375,13 @@ class AsyncUsersResource(AsyncAPIResource):
         body_name: user_create_params.Name,
         schemas: SequenceNotStr[str],
         user_name: str,
-        active: bool | NotGiven = NOT_GIVEN,
+        active: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserCreateResponse:
         """Creates a new user in the organization.
 
@@ -432,7 +432,7 @@ class AsyncUsersResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserRetrieveResponse:
         """
         Retrieves a SCIM user by their ID.
@@ -468,13 +468,13 @@ class AsyncUsersResource(AsyncAPIResource):
         body_name: user_update_params.Name,
         schemas: SequenceNotStr[str],
         user_name: str,
-        active: bool | NotGiven = NOT_GIVEN,
+        active: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserUpdateResponse:
         """
         Updates a provisioned user, you'll need to provide all their information fresh -
@@ -523,15 +523,15 @@ class AsyncUsersResource(AsyncAPIResource):
         self,
         name: str,
         *,
-        count: float | NotGiven = NOT_GIVEN,
-        filter: str | NotGiven = NOT_GIVEN,
-        start_index: float | NotGiven = NOT_GIVEN,
+        count: float | Omit = omit,
+        filter: str | Omit = omit,
+        start_index: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserListResponse:
         """
         Retrieves a paginated list of all organization members who have been set up,
@@ -582,7 +582,7 @@ class AsyncUsersResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Delete a SCIM user
@@ -620,7 +620,7 @@ class AsyncUsersResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UserUpdateAttributesResponse:
         """Modify individual attributes using Operations format.
 

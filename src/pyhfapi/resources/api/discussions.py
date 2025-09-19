@@ -8,7 +8,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NoneType, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -67,13 +67,13 @@ class DiscussionsResource(SyncAPIResource):
         namespace: str,
         description: str,
         title: str,
-        pull_request: bool | NotGiven = NOT_GIVEN,
+        pull_request: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionCreateResponse:
         """
         Create a new discussion
@@ -121,7 +121,7 @@ class DiscussionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionRetrieveResponse:
         """
         Get discussion details
@@ -162,18 +162,18 @@ class DiscussionsResource(SyncAPIResource):
         *,
         repo_type: Literal["models", "spaces", "datasets"],
         namespace: str,
-        author: str | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        search: str | NotGiven = NOT_GIVEN,
-        sort: Literal["recently-created", "trending", "reactions"] | NotGiven = NOT_GIVEN,
-        status: Literal["all", "open", "closed"] | NotGiven = NOT_GIVEN,
-        type: Literal["all", "discussion", "pull_request"] | NotGiven = NOT_GIVEN,
+        author: str | Omit = omit,
+        p: int | Omit = omit,
+        search: str | Omit = omit,
+        sort: Literal["recently-created", "trending", "reactions"] | Omit = omit,
+        status: Literal["all", "open", "closed"] | Omit = omit,
+        type: Literal["all", "discussion", "pull_request"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionListResponse:
         """
         Get discussions for a repo
@@ -227,7 +227,7 @@ class DiscussionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Delete a discussion
@@ -271,7 +271,7 @@ class DiscussionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionAddCommentResponse:
         """
         Create a new comment
@@ -310,13 +310,13 @@ class DiscussionsResource(SyncAPIResource):
         namespace: str,
         repo: str,
         status: Literal["open", "closed"],
-        comment: str | NotGiven = NOT_GIVEN,
+        comment: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionChangeStatusResponse:
         """
         Change the status of a discussion
@@ -366,7 +366,7 @@ class DiscussionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionChangeTitleResponse:
         """
         Change the title of a discussion
@@ -400,24 +400,24 @@ class DiscussionsResource(SyncAPIResource):
     def mark_as_read(
         self,
         *,
-        apply_to_all: object | NotGiven = NOT_GIVEN,
-        article_id: str | NotGiven = NOT_GIVEN,
-        last_update: Union[str, datetime] | NotGiven = NOT_GIVEN,
-        mention: Literal["all", "participating", "mentions"] | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        paper_id: str | NotGiven = NOT_GIVEN,
-        post_author: str | NotGiven = NOT_GIVEN,
-        read_status: Literal["all", "unread"] | NotGiven = NOT_GIVEN,
-        repo_name: str | NotGiven = NOT_GIVEN,
-        repo_type: Literal["dataset", "model", "space"] | NotGiven = NOT_GIVEN,
-        discussion_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        read: bool | NotGiven = NOT_GIVEN,
+        apply_to_all: object | Omit = omit,
+        article_id: str | Omit = omit,
+        last_update: Union[str, datetime] | Omit = omit,
+        mention: Literal["all", "participating", "mentions"] | Omit = omit,
+        p: int | Omit = omit,
+        paper_id: str | Omit = omit,
+        post_author: str | Omit = omit,
+        read_status: Literal["all", "unread"] | Omit = omit,
+        repo_name: str | Omit = omit,
+        repo_type: Literal["dataset", "model", "space"] | Omit = omit,
+        discussion_ids: SequenceNotStr[str] | Omit = omit,
+        read: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """Mark discussions as read or unread.
 
@@ -474,13 +474,13 @@ class DiscussionsResource(SyncAPIResource):
         repo_type: Literal["models", "spaces", "datasets"],
         namespace: str,
         repo: str,
-        comment: str | NotGiven = NOT_GIVEN,
+        comment: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Merge a pull request
@@ -525,7 +525,7 @@ class DiscussionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Pin a discussion
@@ -586,13 +586,13 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         namespace: str,
         description: str,
         title: str,
-        pull_request: bool | NotGiven = NOT_GIVEN,
+        pull_request: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionCreateResponse:
         """
         Create a new discussion
@@ -640,7 +640,7 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionRetrieveResponse:
         """
         Get discussion details
@@ -681,18 +681,18 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         *,
         repo_type: Literal["models", "spaces", "datasets"],
         namespace: str,
-        author: str | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        search: str | NotGiven = NOT_GIVEN,
-        sort: Literal["recently-created", "trending", "reactions"] | NotGiven = NOT_GIVEN,
-        status: Literal["all", "open", "closed"] | NotGiven = NOT_GIVEN,
-        type: Literal["all", "discussion", "pull_request"] | NotGiven = NOT_GIVEN,
+        author: str | Omit = omit,
+        p: int | Omit = omit,
+        search: str | Omit = omit,
+        sort: Literal["recently-created", "trending", "reactions"] | Omit = omit,
+        status: Literal["all", "open", "closed"] | Omit = omit,
+        type: Literal["all", "discussion", "pull_request"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionListResponse:
         """
         Get discussions for a repo
@@ -746,7 +746,7 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Delete a discussion
@@ -790,7 +790,7 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionAddCommentResponse:
         """
         Create a new comment
@@ -831,13 +831,13 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         status: Literal["open", "closed"],
-        comment: str | NotGiven = NOT_GIVEN,
+        comment: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionChangeStatusResponse:
         """
         Change the status of a discussion
@@ -887,7 +887,7 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DiscussionChangeTitleResponse:
         """
         Change the title of a discussion
@@ -923,24 +923,24 @@ class AsyncDiscussionsResource(AsyncAPIResource):
     async def mark_as_read(
         self,
         *,
-        apply_to_all: object | NotGiven = NOT_GIVEN,
-        article_id: str | NotGiven = NOT_GIVEN,
-        last_update: Union[str, datetime] | NotGiven = NOT_GIVEN,
-        mention: Literal["all", "participating", "mentions"] | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        paper_id: str | NotGiven = NOT_GIVEN,
-        post_author: str | NotGiven = NOT_GIVEN,
-        read_status: Literal["all", "unread"] | NotGiven = NOT_GIVEN,
-        repo_name: str | NotGiven = NOT_GIVEN,
-        repo_type: Literal["dataset", "model", "space"] | NotGiven = NOT_GIVEN,
-        discussion_ids: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        read: bool | NotGiven = NOT_GIVEN,
+        apply_to_all: object | Omit = omit,
+        article_id: str | Omit = omit,
+        last_update: Union[str, datetime] | Omit = omit,
+        mention: Literal["all", "participating", "mentions"] | Omit = omit,
+        p: int | Omit = omit,
+        paper_id: str | Omit = omit,
+        post_author: str | Omit = omit,
+        read_status: Literal["all", "unread"] | Omit = omit,
+        repo_name: str | Omit = omit,
+        repo_type: Literal["dataset", "model", "space"] | Omit = omit,
+        discussion_ids: SequenceNotStr[str] | Omit = omit,
+        read: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """Mark discussions as read or unread.
 
@@ -997,13 +997,13 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         repo_type: Literal["models", "spaces", "datasets"],
         namespace: str,
         repo: str,
-        comment: str | NotGiven = NOT_GIVEN,
+        comment: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Merge a pull request
@@ -1048,7 +1048,7 @@ class AsyncDiscussionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Pin a discussion

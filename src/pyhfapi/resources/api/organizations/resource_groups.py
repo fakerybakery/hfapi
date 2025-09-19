@@ -6,7 +6,7 @@ from typing import Iterable
 
 import httpx
 
-from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ...._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ...._utils import maybe_transform, async_maybe_transform
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
@@ -50,16 +50,16 @@ class ResourceGroupsResource(SyncAPIResource):
         path_name: str,
         *,
         body_name: str,
-        auto_join: resource_group_create_params.AutoJoin | NotGiven = NOT_GIVEN,
-        description: str | NotGiven = NOT_GIVEN,
-        repos: Iterable[RepoIDParam] | NotGiven = NOT_GIVEN,
-        users: Iterable[resource_group_create_params.User] | NotGiven = NOT_GIVEN,
+        auto_join: resource_group_create_params.AutoJoin | Omit = omit,
+        description: str | Omit = omit,
+        repos: Iterable[RepoIDParam] | Omit = omit,
+        users: Iterable[resource_group_create_params.User] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResourceGroupCreateResponse:
         """
         Create a new resource group in the organization.
@@ -104,7 +104,7 @@ class ResourceGroupsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResourceGroupListResponse:
         """
         Get all resource groups the user has access to.
@@ -156,16 +156,16 @@ class AsyncResourceGroupsResource(AsyncAPIResource):
         path_name: str,
         *,
         body_name: str,
-        auto_join: resource_group_create_params.AutoJoin | NotGiven = NOT_GIVEN,
-        description: str | NotGiven = NOT_GIVEN,
-        repos: Iterable[RepoIDParam] | NotGiven = NOT_GIVEN,
-        users: Iterable[resource_group_create_params.User] | NotGiven = NOT_GIVEN,
+        auto_join: resource_group_create_params.AutoJoin | Omit = omit,
+        description: str | Omit = omit,
+        repos: Iterable[RepoIDParam] | Omit = omit,
+        users: Iterable[resource_group_create_params.User] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResourceGroupCreateResponse:
         """
         Create a new resource group in the organization.
@@ -210,7 +210,7 @@ class AsyncResourceGroupsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResourceGroupListResponse:
         """
         Get all resource groups the user has access to.
