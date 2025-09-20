@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.1 (2025-09-20)
+
+Full Changelog: [v1.1.0...v1.1.1](https://github.com/fakerybakery/hfapi/compare/v1.1.0...v1.1.1)
+
+### Chores
+
+* do not install brew dependencies in ./scripts/bootstrap by default ([52c71ab](https://github.com/fakerybakery/hfapi/commit/52c71ab6142322177b2a5454d93cd7a2047eae41))
+* **internal:** update pydantic dependency ([8a07add](https://github.com/fakerybakery/hfapi/commit/8a07adda6881a0adb2175ee9c6a400bbecb94cfa))
+* **types:** change optional parameter type from NotGiven to Omit ([d937e6e](https://github.com/fakerybakery/hfapi/commit/d937e6e9e05036e095b6fd2c5a017cfa6c77296a))
+
 ## 1.1.0 (2025-09-16)
 
 Full Changelog: [v1.0.0...v1.1.0](https://github.com/fakerybakery/hfapi/compare/v1.0.0...v1.1.0)
