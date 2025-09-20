@@ -31,7 +31,7 @@ from .secrets import (
     SecretsResourceWithStreamingResponse,
     AsyncSecretsResourceWithStreamingResponse,
 )
-from ...._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven, SequenceNotStr
+from ...._types import Body, Omit, Query, Headers, NoneType, NotGiven, SequenceNotStr, omit, not_given
 from ...._utils import maybe_transform, async_maybe_transform
 from .lfs_files import (
     LFSFilesResource,
@@ -145,14 +145,14 @@ class SpacesResource(SyncAPIResource):
         namespace: str,
         repo: str,
         files: Iterable[space_check_preupload_params.File],
-        git_attributes: str | NotGiven = NOT_GIVEN,
-        git_ignore: str | NotGiven = NOT_GIVEN,
+        git_attributes: str | Omit = omit,
+        git_ignore: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceCheckPreuploadResponse:
         """
         Check if a file should be uploaded through the Large File mechanism or directly.
@@ -203,13 +203,13 @@ class SpacesResource(SyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        create_pr: object | NotGiven = NOT_GIVEN,
+        create_pr: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceCommitResponse:
         """
         For legacy reason, we support both `application/json` and `application/x-ndjson`
@@ -320,13 +320,13 @@ class SpacesResource(SyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        raw: object | NotGiven = NOT_GIVEN,
+        raw: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> str:
         """
         Get a compare rev
@@ -370,7 +370,7 @@ class SpacesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceGetNotebookURLResponse:
         """
         Get a jupyter notebook URL
@@ -417,7 +417,7 @@ class SpacesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceGetSecurityStatusResponse:
         """
         Get the security status of a repo
@@ -454,7 +454,7 @@ class SpacesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceGetXetReadTokenResponse:
         """
         Get a read short-lived access token for XET
@@ -493,7 +493,7 @@ class SpacesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceGetXetWriteTokenResponse:
         """
         Get a write short-lived access token for XET
@@ -527,15 +527,15 @@ class SpacesResource(SyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        expand: List[Literal["formatted"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
+        expand: List[Literal["formatted"]] | Omit = omit,
+        limit: int | Omit = omit,
+        p: int | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceListCommitsResponse:
         """
         List commits
@@ -587,7 +587,7 @@ class SpacesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceListPathsInfoResponse:
         """
         List paths info
@@ -629,13 +629,13 @@ class SpacesResource(SyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        include_prs: object | NotGiven = NOT_GIVEN,
+        include_prs: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceListRefsResponse:
         """
         List references
@@ -672,16 +672,16 @@ class SpacesResource(SyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        expand: object | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        recursive: object | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        expand: object | Omit = omit,
+        limit: int | Omit = omit,
+        recursive: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceListTreeContentResponse:
         """
         List the content of a repository tree, with pagination support.
@@ -737,13 +737,13 @@ class SpacesResource(SyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        session_uuid: str | NotGiven = NOT_GIVEN,
+        session_uuid: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Get status updates for a specific Space in a streaming fashion, with SSE
@@ -788,7 +788,7 @@ class SpacesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Get logs for a specific Space in a streaming fashion, with SSE protocol
@@ -827,7 +827,7 @@ class SpacesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Get live metrics for a specific Space in a streaming fashion, with SSE protocol,
@@ -861,13 +861,13 @@ class SpacesResource(SyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        message: str | NotGiven = NOT_GIVEN,
+        message: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceSuperSquashResponse:
         """
         This will squash all commits in the current ref into a single commit with the
@@ -902,18 +902,18 @@ class SpacesResource(SyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        discussions_disabled: bool | NotGiven = NOT_GIVEN,
-        gated: Union[Literal["auto", "manual"], object] | NotGiven = NOT_GIVEN,
-        gated_notifications_email: str | NotGiven = NOT_GIVEN,
-        gated_notifications_mode: Literal["bulk", "real-time"] | NotGiven = NOT_GIVEN,
-        private: bool | NotGiven = NOT_GIVEN,
-        xet_enabled: bool | NotGiven = NOT_GIVEN,
+        discussions_disabled: bool | Omit = omit,
+        gated: Union[Literal["auto", "manual"], object] | Omit = omit,
+        gated_notifications_email: str | Omit = omit,
+        gated_notifications_mode: Literal["bulk", "real-time"] | Omit = omit,
+        private: bool | Omit = omit,
+        xet_enabled: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceUpdateSettingsResponse:
         """
         Update the settings of a repo
@@ -1002,14 +1002,14 @@ class AsyncSpacesResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         files: Iterable[space_check_preupload_params.File],
-        git_attributes: str | NotGiven = NOT_GIVEN,
-        git_ignore: str | NotGiven = NOT_GIVEN,
+        git_attributes: str | Omit = omit,
+        git_ignore: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceCheckPreuploadResponse:
         """
         Check if a file should be uploaded through the Large File mechanism or directly.
@@ -1060,13 +1060,13 @@ class AsyncSpacesResource(AsyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        create_pr: object | NotGiven = NOT_GIVEN,
+        create_pr: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceCommitResponse:
         """
         For legacy reason, we support both `application/json` and `application/x-ndjson`
@@ -1177,13 +1177,13 @@ class AsyncSpacesResource(AsyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        raw: object | NotGiven = NOT_GIVEN,
+        raw: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> str:
         """
         Get a compare rev
@@ -1227,7 +1227,7 @@ class AsyncSpacesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceGetNotebookURLResponse:
         """
         Get a jupyter notebook URL
@@ -1274,7 +1274,7 @@ class AsyncSpacesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceGetSecurityStatusResponse:
         """
         Get the security status of a repo
@@ -1311,7 +1311,7 @@ class AsyncSpacesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceGetXetReadTokenResponse:
         """
         Get a read short-lived access token for XET
@@ -1350,7 +1350,7 @@ class AsyncSpacesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceGetXetWriteTokenResponse:
         """
         Get a write short-lived access token for XET
@@ -1384,15 +1384,15 @@ class AsyncSpacesResource(AsyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        expand: List[Literal["formatted"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
+        expand: List[Literal["formatted"]] | Omit = omit,
+        limit: int | Omit = omit,
+        p: int | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceListCommitsResponse:
         """
         List commits
@@ -1444,7 +1444,7 @@ class AsyncSpacesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceListPathsInfoResponse:
         """
         List paths info
@@ -1486,13 +1486,13 @@ class AsyncSpacesResource(AsyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        include_prs: object | NotGiven = NOT_GIVEN,
+        include_prs: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceListRefsResponse:
         """
         List references
@@ -1531,16 +1531,16 @@ class AsyncSpacesResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        expand: object | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        recursive: object | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        expand: object | Omit = omit,
+        limit: int | Omit = omit,
+        recursive: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceListTreeContentResponse:
         """
         List the content of a repository tree, with pagination support.
@@ -1596,13 +1596,13 @@ class AsyncSpacesResource(AsyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        session_uuid: str | NotGiven = NOT_GIVEN,
+        session_uuid: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Get status updates for a specific Space in a streaming fashion, with SSE
@@ -1647,7 +1647,7 @@ class AsyncSpacesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Get logs for a specific Space in a streaming fashion, with SSE protocol
@@ -1686,7 +1686,7 @@ class AsyncSpacesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Get live metrics for a specific Space in a streaming fashion, with SSE protocol,
@@ -1720,13 +1720,13 @@ class AsyncSpacesResource(AsyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        message: str | NotGiven = NOT_GIVEN,
+        message: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceSuperSquashResponse:
         """
         This will squash all commits in the current ref into a single commit with the
@@ -1761,18 +1761,18 @@ class AsyncSpacesResource(AsyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        discussions_disabled: bool | NotGiven = NOT_GIVEN,
-        gated: Union[Literal["auto", "manual"], object] | NotGiven = NOT_GIVEN,
-        gated_notifications_email: str | NotGiven = NOT_GIVEN,
-        gated_notifications_mode: Literal["bulk", "real-time"] | NotGiven = NOT_GIVEN,
-        private: bool | NotGiven = NOT_GIVEN,
-        xet_enabled: bool | NotGiven = NOT_GIVEN,
+        discussions_disabled: bool | Omit = omit,
+        gated: Union[Literal["auto", "manual"], object] | Omit = omit,
+        gated_notifications_email: str | Omit = omit,
+        gated_notifications_mode: Literal["bulk", "real-time"] | Omit = omit,
+        private: bool | Omit = omit,
+        xet_enabled: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> SpaceUpdateSettingsResponse:
         """
         Update the settings of a repo

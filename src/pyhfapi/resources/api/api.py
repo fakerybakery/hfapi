@@ -34,7 +34,7 @@ from .repos import (
     AsyncReposResourceWithStreamingResponse,
 )
 from ...types import api_get_model_tags_params, api_get_daily_papers_params, api_get_dataset_tags_params
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from .blog.blog import (
@@ -267,17 +267,17 @@ class APIResource(_resource.SyncAPIResource):
     def get_daily_papers(
         self,
         *,
-        date: Union[str, date] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        sort: Literal["publishedAt", "trending"] | NotGiven = NOT_GIVEN,
-        submitter: str | NotGiven = NOT_GIVEN,
+        date: Union[str, date] | Omit = omit,
+        limit: int | Omit = omit,
+        p: int | Omit = omit,
+        sort: Literal["publishedAt", "trending"] | Omit = omit,
+        submitter: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> APIGetDailyPapersResponse:
         """
         Get Daily Papers
@@ -334,13 +334,13 @@ class APIResource(_resource.SyncAPIResource):
             "source_datasets",
             "benchmark",
         ]
-        | NotGiven = NOT_GIVEN,
+        | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> APIGetDatasetTagsResponse:
         """Get all possible tags used for datasets, grouped by tag type.
 
@@ -372,13 +372,13 @@ class APIResource(_resource.SyncAPIResource):
         self,
         *,
         type: Literal["pipeline_tag", "library", "dataset", "language", "license", "arxiv", "doi", "region", "other"]
-        | NotGiven = NOT_GIVEN,
+        | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> APIGetModelTagsResponse:
         """Get all possible tags used for models, grouped by tag type.
 
@@ -414,7 +414,7 @@ class APIResource(_resource.SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> APIGetUserInfoResponse:
         """Get information about the user and auth method use"""
         return self._get(
@@ -521,17 +521,17 @@ class AsyncAPIResource(_resource.AsyncAPIResource):
     async def get_daily_papers(
         self,
         *,
-        date: Union[str, date] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
-        sort: Literal["publishedAt", "trending"] | NotGiven = NOT_GIVEN,
-        submitter: str | NotGiven = NOT_GIVEN,
+        date: Union[str, date] | Omit = omit,
+        limit: int | Omit = omit,
+        p: int | Omit = omit,
+        sort: Literal["publishedAt", "trending"] | Omit = omit,
+        submitter: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> APIGetDailyPapersResponse:
         """
         Get Daily Papers
@@ -588,13 +588,13 @@ class AsyncAPIResource(_resource.AsyncAPIResource):
             "source_datasets",
             "benchmark",
         ]
-        | NotGiven = NOT_GIVEN,
+        | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> APIGetDatasetTagsResponse:
         """Get all possible tags used for datasets, grouped by tag type.
 
@@ -626,13 +626,13 @@ class AsyncAPIResource(_resource.AsyncAPIResource):
         self,
         *,
         type: Literal["pipeline_tag", "library", "dataset", "language", "license", "arxiv", "doi", "region", "other"]
-        | NotGiven = NOT_GIVEN,
+        | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> APIGetModelTagsResponse:
         """Get all possible tags used for models, grouped by tag type.
 
@@ -668,7 +668,7 @@ class AsyncAPIResource(_resource.AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> APIGetUserInfoResponse:
         """Get information about the user and auth method use"""
         return await self._get(

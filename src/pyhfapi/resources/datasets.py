@@ -8,7 +8,7 @@ from typing_extensions import Literal
 import httpx
 
 from ..types import dataset_request_access_params
-from .._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
+from .._types import Body, Omit, Query, Headers, NoneType, NotGiven, omit, not_given
 from .._utils import is_given, maybe_transform, strip_not_given, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
@@ -54,7 +54,7 @@ class DatasetsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> str:
         """
         Export a report of all access requests for a gated repository
@@ -85,13 +85,13 @@ class DatasetsResource(SyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        body: Dict[str, object] | NotGiven = NOT_GIVEN,
+        body: Dict[str, object] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         The fields requested by repository card metadata
@@ -127,14 +127,14 @@ class DatasetsResource(SyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        accept: Literal["application/vnd.xet-fileinfo+json"] | NotGiven = NOT_GIVEN,
-        range: str | NotGiven = NOT_GIVEN,
+        accept: Literal["application/vnd.xet-fileinfo+json"] | Omit = omit,
+        range: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetResolveFileResponse:
         """
         This endpoint requires to follow redirection
@@ -165,7 +165,7 @@ class DatasetsResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else NOT_GIVEN,
+                    "Accept": str(accept) if is_given(accept) else omit,
                     "Range": range,
                 }
             ),
@@ -210,7 +210,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> str:
         """
         Export a report of all access requests for a gated repository
@@ -241,13 +241,13 @@ class AsyncDatasetsResource(AsyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        body: Dict[str, object] | NotGiven = NOT_GIVEN,
+        body: Dict[str, object] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         The fields requested by repository card metadata
@@ -283,14 +283,14 @@ class AsyncDatasetsResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        accept: Literal["application/vnd.xet-fileinfo+json"] | NotGiven = NOT_GIVEN,
-        range: str | NotGiven = NOT_GIVEN,
+        accept: Literal["application/vnd.xet-fileinfo+json"] | Omit = omit,
+        range: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetResolveFileResponse:
         """
         This endpoint requires to follow redirection
@@ -321,7 +321,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else NOT_GIVEN,
+                    "Accept": str(accept) if is_given(accept) else omit,
                     "Range": range,
                 }
             ),
