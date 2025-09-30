@@ -87,7 +87,7 @@ class ResolveResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else omit,
+                    "Accept": str(accept) if is_given(accept) else not_given,
                     "Range": range,
                 }
             ),
@@ -167,7 +167,7 @@ class AsyncResolveResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else omit,
+                    "Accept": str(accept) if is_given(accept) else not_given,
                     "Range": range,
                 }
             ),
