@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ......_types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ......_types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ......_utils import maybe_transform, async_maybe_transform
 from ......_compat import cached_property
 from ......_resource import SyncAPIResource, AsyncAPIResource
@@ -60,13 +60,13 @@ class GroupsResource(SyncAPIResource):
         *,
         display_name: str,
         members: Iterable[group_create_params.Member],
-        external_id: str | NotGiven = NOT_GIVEN,
+        external_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupCreateResponse:
         """Creates a new group in the organization.
 
@@ -107,13 +107,13 @@ class GroupsResource(SyncAPIResource):
         group_id: str,
         *,
         name: str,
-        excluded_attributes: Literal["members"] | NotGiven = NOT_GIVEN,
+        excluded_attributes: Literal["members"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupRetrieveResponse:
         """Retrieves a group by its ID.
 
@@ -155,13 +155,13 @@ class GroupsResource(SyncAPIResource):
         display_name: str,
         members: Iterable[group_update_params.Member],
         schemas: List[Literal["urn:ietf:params:scim:schemas:core:2.0:Group"]],
-        external_id: str | NotGiven = NOT_GIVEN,
+        external_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupUpdateResponse:
         """Updates a group by its ID.
 
@@ -202,16 +202,16 @@ class GroupsResource(SyncAPIResource):
         self,
         name: str,
         *,
-        count: float | NotGiven = NOT_GIVEN,
-        excluded_attributes: Literal["members"] | NotGiven = NOT_GIVEN,
-        filter: str | NotGiven = NOT_GIVEN,
-        start_index: float | NotGiven = NOT_GIVEN,
+        count: float | Omit = omit,
+        excluded_attributes: Literal["members"] | Omit = omit,
+        filter: str | Omit = omit,
+        start_index: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupListResponse:
         """Retrieves a paginated list of all organization groups.
 
@@ -259,7 +259,7 @@ class GroupsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Delete a SCIM group
@@ -297,7 +297,7 @@ class GroupsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupUpdateAttributesResponse:
         """Updates individual attributes using Operations format.
 
@@ -360,13 +360,13 @@ class AsyncGroupsResource(AsyncAPIResource):
         *,
         display_name: str,
         members: Iterable[group_create_params.Member],
-        external_id: str | NotGiven = NOT_GIVEN,
+        external_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupCreateResponse:
         """Creates a new group in the organization.
 
@@ -407,13 +407,13 @@ class AsyncGroupsResource(AsyncAPIResource):
         group_id: str,
         *,
         name: str,
-        excluded_attributes: Literal["members"] | NotGiven = NOT_GIVEN,
+        excluded_attributes: Literal["members"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupRetrieveResponse:
         """Retrieves a group by its ID.
 
@@ -455,13 +455,13 @@ class AsyncGroupsResource(AsyncAPIResource):
         display_name: str,
         members: Iterable[group_update_params.Member],
         schemas: List[Literal["urn:ietf:params:scim:schemas:core:2.0:Group"]],
-        external_id: str | NotGiven = NOT_GIVEN,
+        external_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupUpdateResponse:
         """Updates a group by its ID.
 
@@ -502,16 +502,16 @@ class AsyncGroupsResource(AsyncAPIResource):
         self,
         name: str,
         *,
-        count: float | NotGiven = NOT_GIVEN,
-        excluded_attributes: Literal["members"] | NotGiven = NOT_GIVEN,
-        filter: str | NotGiven = NOT_GIVEN,
-        start_index: float | NotGiven = NOT_GIVEN,
+        count: float | Omit = omit,
+        excluded_attributes: Literal["members"] | Omit = omit,
+        filter: str | Omit = omit,
+        start_index: float | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupListResponse:
         """Retrieves a paginated list of all organization groups.
 
@@ -559,7 +559,7 @@ class AsyncGroupsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Delete a SCIM group
@@ -597,7 +597,7 @@ class AsyncGroupsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> GroupUpdateAttributesResponse:
         """Updates individual attributes using Operations format.
 

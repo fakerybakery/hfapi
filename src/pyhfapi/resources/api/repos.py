@@ -7,7 +7,7 @@ from typing_extensions import Literal, overload
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
+from ..._types import Body, Omit, Query, Headers, NoneType, NotGiven, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -49,7 +49,7 @@ class ReposResource(SyncAPIResource):
         self,
         *,
         type: Literal["dataset"],
-        files: Iterable[repo_create_params.Variant0File] | NotGiven = NOT_GIVEN,
+        files: Iterable[repo_create_params.Variant0File] | Omit = omit,
         license: Literal[
             "apache-2.0",
             "mit",
@@ -133,19 +133,19 @@ class ReposResource(SyncAPIResource):
             "unknown",
             "other",
         ]
-        | NotGiven = NOT_GIVEN,
-        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | NotGiven = NOT_GIVEN,
-        license_name: str | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        organization: Optional[str] | NotGiven = NOT_GIVEN,
-        private: Optional[bool] | NotGiven = NOT_GIVEN,
-        resource_group_id: Optional[str] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | Omit = omit,
+        license_name: str | Omit = omit,
+        name: str | Omit = omit,
+        organization: Optional[str] | Omit = omit,
+        private: Optional[bool] | Omit = omit,
+        resource_group_id: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RepoCreateResponse:
         """Create a new repository
 
@@ -171,7 +171,7 @@ class ReposResource(SyncAPIResource):
     def create(
         self,
         *,
-        files: Iterable[repo_create_params.Variant1File] | NotGiven = NOT_GIVEN,
+        files: Iterable[repo_create_params.Variant1File] | Omit = omit,
         license: Literal[
             "apache-2.0",
             "mit",
@@ -255,20 +255,20 @@ class ReposResource(SyncAPIResource):
             "unknown",
             "other",
         ]
-        | NotGiven = NOT_GIVEN,
-        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | NotGiven = NOT_GIVEN,
-        license_name: str | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        organization: Optional[str] | NotGiven = NOT_GIVEN,
-        private: Optional[bool] | NotGiven = NOT_GIVEN,
-        resource_group_id: Optional[str] | NotGiven = NOT_GIVEN,
-        type: Literal["model"] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | Omit = omit,
+        license_name: str | Omit = omit,
+        name: str | Omit = omit,
+        organization: Optional[str] | Omit = omit,
+        private: Optional[bool] | Omit = omit,
+        resource_group_id: Optional[str] | Omit = omit,
+        type: Literal["model"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RepoCreateResponse:
         """Create a new repository
 
@@ -296,8 +296,8 @@ class ReposResource(SyncAPIResource):
         *,
         sdk: Literal["gradio", "docker", "static", "streamlit"],
         type: Literal["space"],
-        dev_mode_enabled: bool | NotGiven = NOT_GIVEN,
-        files: Iterable[repo_create_params.Variant2File] | NotGiven = NOT_GIVEN,
+        dev_mode_enabled: bool | Omit = omit,
+        files: Iterable[repo_create_params.Variant2File] | Omit = omit,
         hardware: Literal[
             "cpu-basic",
             "cpu-upgrade",
@@ -321,7 +321,7 @@ class ReposResource(SyncAPIResource):
             "inf2x6",
             "zerogpu",
         ]
-        | NotGiven = NOT_GIVEN,
+        | Omit = omit,
         license: Literal[
             "apache-2.0",
             "mit",
@@ -405,26 +405,26 @@ class ReposResource(SyncAPIResource):
             "unknown",
             "other",
         ]
-        | NotGiven = NOT_GIVEN,
-        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | NotGiven = NOT_GIVEN,
-        license_name: str | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        organization: Optional[str] | NotGiven = NOT_GIVEN,
-        private: Optional[bool] | NotGiven = NOT_GIVEN,
-        resource_group_id: Optional[str] | NotGiven = NOT_GIVEN,
-        sdk_version: Optional[str] | NotGiven = NOT_GIVEN,
-        secrets: Iterable[repo_create_params.Variant2Secret] | NotGiven = NOT_GIVEN,
-        short_description: str | NotGiven = NOT_GIVEN,
-        sleep_time_seconds: Union[int, Literal[-1]] | NotGiven = NOT_GIVEN,
-        storage_tier: Optional[Literal["small", "medium", "large"]] | NotGiven = NOT_GIVEN,
-        template: str | NotGiven = NOT_GIVEN,
-        variables: Iterable[repo_create_params.Variant2Variable] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | Omit = omit,
+        license_name: str | Omit = omit,
+        name: str | Omit = omit,
+        organization: Optional[str] | Omit = omit,
+        private: Optional[bool] | Omit = omit,
+        resource_group_id: Optional[str] | Omit = omit,
+        sdk_version: Optional[str] | Omit = omit,
+        secrets: Iterable[repo_create_params.Variant2Secret] | Omit = omit,
+        short_description: str | Omit = omit,
+        sleep_time_seconds: Union[int, Literal[-1]] | Omit = omit,
+        storage_tier: Optional[Literal["small", "medium", "large"]] | Omit = omit,
+        template: str | Omit = omit,
+        variables: Iterable[repo_create_params.Variant2Variable] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RepoCreateResponse:
         """Create a new repository
 
@@ -452,11 +452,11 @@ class ReposResource(SyncAPIResource):
     def create(
         self,
         *,
-        type: Literal["dataset"] | Literal["model"] | Literal["space"] | NotGiven = NOT_GIVEN,
+        type: Literal["dataset"] | Literal["model"] | Literal["space"] | Omit = omit,
         files: Iterable[repo_create_params.Variant0File]
         | Iterable[repo_create_params.Variant1File]
         | Iterable[repo_create_params.Variant2File]
-        | NotGiven = NOT_GIVEN,
+        | Omit = omit,
         license: Literal[
             "apache-2.0",
             "mit",
@@ -540,15 +540,15 @@ class ReposResource(SyncAPIResource):
             "unknown",
             "other",
         ]
-        | NotGiven = NOT_GIVEN,
-        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | NotGiven = NOT_GIVEN,
-        license_name: str | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        organization: Optional[str] | NotGiven = NOT_GIVEN,
-        private: Optional[bool] | NotGiven = NOT_GIVEN,
-        resource_group_id: Optional[str] | NotGiven = NOT_GIVEN,
-        sdk: Literal["gradio", "docker", "static", "streamlit"] | NotGiven = NOT_GIVEN,
-        dev_mode_enabled: bool | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | Omit = omit,
+        license_name: str | Omit = omit,
+        name: str | Omit = omit,
+        organization: Optional[str] | Omit = omit,
+        private: Optional[bool] | Omit = omit,
+        resource_group_id: Optional[str] | Omit = omit,
+        sdk: Literal["gradio", "docker", "static", "streamlit"] | Omit = omit,
+        dev_mode_enabled: bool | Omit = omit,
         hardware: Literal[
             "cpu-basic",
             "cpu-upgrade",
@@ -572,20 +572,20 @@ class ReposResource(SyncAPIResource):
             "inf2x6",
             "zerogpu",
         ]
-        | NotGiven = NOT_GIVEN,
-        sdk_version: Optional[str] | NotGiven = NOT_GIVEN,
-        secrets: Iterable[repo_create_params.Variant2Secret] | NotGiven = NOT_GIVEN,
-        short_description: str | NotGiven = NOT_GIVEN,
-        sleep_time_seconds: Union[int, Literal[-1]] | NotGiven = NOT_GIVEN,
-        storage_tier: Optional[Literal["small", "medium", "large"]] | NotGiven = NOT_GIVEN,
-        template: str | NotGiven = NOT_GIVEN,
-        variables: Iterable[repo_create_params.Variant2Variable] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        sdk_version: Optional[str] | Omit = omit,
+        secrets: Iterable[repo_create_params.Variant2Secret] | Omit = omit,
+        short_description: str | Omit = omit,
+        sleep_time_seconds: Union[int, Literal[-1]] | Omit = omit,
+        storage_tier: Optional[Literal["small", "medium", "large"]] | Omit = omit,
+        template: str | Omit = omit,
+        variables: Iterable[repo_create_params.Variant2Variable] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RepoCreateResponse:
         return self._post(
             "/api/repos/create",
@@ -624,13 +624,13 @@ class ReposResource(SyncAPIResource):
         *,
         from_repo: str,
         to_repo: str,
-        type: Literal["dataset", "model", "space"] | NotGiven = NOT_GIVEN,
+        type: Literal["dataset", "model", "space"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Move or rename a repo.
@@ -687,7 +687,7 @@ class AsyncReposResource(AsyncAPIResource):
         self,
         *,
         type: Literal["dataset"],
-        files: Iterable[repo_create_params.Variant0File] | NotGiven = NOT_GIVEN,
+        files: Iterable[repo_create_params.Variant0File] | Omit = omit,
         license: Literal[
             "apache-2.0",
             "mit",
@@ -771,19 +771,19 @@ class AsyncReposResource(AsyncAPIResource):
             "unknown",
             "other",
         ]
-        | NotGiven = NOT_GIVEN,
-        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | NotGiven = NOT_GIVEN,
-        license_name: str | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        organization: Optional[str] | NotGiven = NOT_GIVEN,
-        private: Optional[bool] | NotGiven = NOT_GIVEN,
-        resource_group_id: Optional[str] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | Omit = omit,
+        license_name: str | Omit = omit,
+        name: str | Omit = omit,
+        organization: Optional[str] | Omit = omit,
+        private: Optional[bool] | Omit = omit,
+        resource_group_id: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RepoCreateResponse:
         """Create a new repository
 
@@ -809,7 +809,7 @@ class AsyncReposResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        files: Iterable[repo_create_params.Variant1File] | NotGiven = NOT_GIVEN,
+        files: Iterable[repo_create_params.Variant1File] | Omit = omit,
         license: Literal[
             "apache-2.0",
             "mit",
@@ -893,20 +893,20 @@ class AsyncReposResource(AsyncAPIResource):
             "unknown",
             "other",
         ]
-        | NotGiven = NOT_GIVEN,
-        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | NotGiven = NOT_GIVEN,
-        license_name: str | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        organization: Optional[str] | NotGiven = NOT_GIVEN,
-        private: Optional[bool] | NotGiven = NOT_GIVEN,
-        resource_group_id: Optional[str] | NotGiven = NOT_GIVEN,
-        type: Literal["model"] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | Omit = omit,
+        license_name: str | Omit = omit,
+        name: str | Omit = omit,
+        organization: Optional[str] | Omit = omit,
+        private: Optional[bool] | Omit = omit,
+        resource_group_id: Optional[str] | Omit = omit,
+        type: Literal["model"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RepoCreateResponse:
         """Create a new repository
 
@@ -934,8 +934,8 @@ class AsyncReposResource(AsyncAPIResource):
         *,
         sdk: Literal["gradio", "docker", "static", "streamlit"],
         type: Literal["space"],
-        dev_mode_enabled: bool | NotGiven = NOT_GIVEN,
-        files: Iterable[repo_create_params.Variant2File] | NotGiven = NOT_GIVEN,
+        dev_mode_enabled: bool | Omit = omit,
+        files: Iterable[repo_create_params.Variant2File] | Omit = omit,
         hardware: Literal[
             "cpu-basic",
             "cpu-upgrade",
@@ -959,7 +959,7 @@ class AsyncReposResource(AsyncAPIResource):
             "inf2x6",
             "zerogpu",
         ]
-        | NotGiven = NOT_GIVEN,
+        | Omit = omit,
         license: Literal[
             "apache-2.0",
             "mit",
@@ -1043,26 +1043,26 @@ class AsyncReposResource(AsyncAPIResource):
             "unknown",
             "other",
         ]
-        | NotGiven = NOT_GIVEN,
-        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | NotGiven = NOT_GIVEN,
-        license_name: str | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        organization: Optional[str] | NotGiven = NOT_GIVEN,
-        private: Optional[bool] | NotGiven = NOT_GIVEN,
-        resource_group_id: Optional[str] | NotGiven = NOT_GIVEN,
-        sdk_version: Optional[str] | NotGiven = NOT_GIVEN,
-        secrets: Iterable[repo_create_params.Variant2Secret] | NotGiven = NOT_GIVEN,
-        short_description: str | NotGiven = NOT_GIVEN,
-        sleep_time_seconds: Union[int, Literal[-1]] | NotGiven = NOT_GIVEN,
-        storage_tier: Optional[Literal["small", "medium", "large"]] | NotGiven = NOT_GIVEN,
-        template: str | NotGiven = NOT_GIVEN,
-        variables: Iterable[repo_create_params.Variant2Variable] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | Omit = omit,
+        license_name: str | Omit = omit,
+        name: str | Omit = omit,
+        organization: Optional[str] | Omit = omit,
+        private: Optional[bool] | Omit = omit,
+        resource_group_id: Optional[str] | Omit = omit,
+        sdk_version: Optional[str] | Omit = omit,
+        secrets: Iterable[repo_create_params.Variant2Secret] | Omit = omit,
+        short_description: str | Omit = omit,
+        sleep_time_seconds: Union[int, Literal[-1]] | Omit = omit,
+        storage_tier: Optional[Literal["small", "medium", "large"]] | Omit = omit,
+        template: str | Omit = omit,
+        variables: Iterable[repo_create_params.Variant2Variable] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RepoCreateResponse:
         """Create a new repository
 
@@ -1090,11 +1090,11 @@ class AsyncReposResource(AsyncAPIResource):
     async def create(
         self,
         *,
-        type: Literal["dataset"] | Literal["model"] | Literal["space"] | NotGiven = NOT_GIVEN,
+        type: Literal["dataset"] | Literal["model"] | Literal["space"] | Omit = omit,
         files: Iterable[repo_create_params.Variant0File]
         | Iterable[repo_create_params.Variant1File]
         | Iterable[repo_create_params.Variant2File]
-        | NotGiven = NOT_GIVEN,
+        | Omit = omit,
         license: Literal[
             "apache-2.0",
             "mit",
@@ -1178,15 +1178,15 @@ class AsyncReposResource(AsyncAPIResource):
             "unknown",
             "other",
         ]
-        | NotGiven = NOT_GIVEN,
-        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | NotGiven = NOT_GIVEN,
-        license_name: str | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
-        organization: Optional[str] | NotGiven = NOT_GIVEN,
-        private: Optional[bool] | NotGiven = NOT_GIVEN,
-        resource_group_id: Optional[str] | NotGiven = NOT_GIVEN,
-        sdk: Literal["gradio", "docker", "static", "streamlit"] | NotGiven = NOT_GIVEN,
-        dev_mode_enabled: bool | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        license_link: Union[Literal["LICENSE", "LICENSE.md"], str] | Omit = omit,
+        license_name: str | Omit = omit,
+        name: str | Omit = omit,
+        organization: Optional[str] | Omit = omit,
+        private: Optional[bool] | Omit = omit,
+        resource_group_id: Optional[str] | Omit = omit,
+        sdk: Literal["gradio", "docker", "static", "streamlit"] | Omit = omit,
+        dev_mode_enabled: bool | Omit = omit,
         hardware: Literal[
             "cpu-basic",
             "cpu-upgrade",
@@ -1210,20 +1210,20 @@ class AsyncReposResource(AsyncAPIResource):
             "inf2x6",
             "zerogpu",
         ]
-        | NotGiven = NOT_GIVEN,
-        sdk_version: Optional[str] | NotGiven = NOT_GIVEN,
-        secrets: Iterable[repo_create_params.Variant2Secret] | NotGiven = NOT_GIVEN,
-        short_description: str | NotGiven = NOT_GIVEN,
-        sleep_time_seconds: Union[int, Literal[-1]] | NotGiven = NOT_GIVEN,
-        storage_tier: Optional[Literal["small", "medium", "large"]] | NotGiven = NOT_GIVEN,
-        template: str | NotGiven = NOT_GIVEN,
-        variables: Iterable[repo_create_params.Variant2Variable] | NotGiven = NOT_GIVEN,
+        | Omit = omit,
+        sdk_version: Optional[str] | Omit = omit,
+        secrets: Iterable[repo_create_params.Variant2Secret] | Omit = omit,
+        short_description: str | Omit = omit,
+        sleep_time_seconds: Union[int, Literal[-1]] | Omit = omit,
+        storage_tier: Optional[Literal["small", "medium", "large"]] | Omit = omit,
+        template: str | Omit = omit,
+        variables: Iterable[repo_create_params.Variant2Variable] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> RepoCreateResponse:
         return await self._post(
             "/api/repos/create",
@@ -1262,13 +1262,13 @@ class AsyncReposResource(AsyncAPIResource):
         *,
         from_repo: str,
         to_repo: str,
-        type: Literal["dataset", "model", "space"] | NotGiven = NOT_GIVEN,
+        type: Literal["dataset", "model", "space"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Move or rename a repo.
