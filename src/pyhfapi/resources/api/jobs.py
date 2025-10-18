@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven, SequenceNotStr
+from ..._types import Body, Omit, Query, Headers, NoneType, NotGiven, SequenceNotStr, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -57,7 +57,7 @@ class JobsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JobRetrieveResponse:
         """
         Get a job
@@ -92,7 +92,7 @@ class JobsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JobListResponse:
         """
         List of jobs for an entity
@@ -126,7 +126,7 @@ class JobsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JobCancelResponse:
         """
         Cancel a job
@@ -179,19 +179,19 @@ class JobsResource(SyncAPIResource):
             "h100x8",
             "inf2x6",
         ],
-        arch: Literal["amd64", "arm64"] | NotGiven = NOT_GIVEN,
-        arguments: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        command: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        docker_image: str | NotGiven = NOT_GIVEN,
-        secrets: Dict[str, str] | NotGiven = NOT_GIVEN,
-        space_id: str | NotGiven = NOT_GIVEN,
-        timeout_seconds: Optional[int] | NotGiven = NOT_GIVEN,
+        arch: Literal["amd64", "arm64"] | Omit = omit,
+        arguments: SequenceNotStr[str] | Omit = omit,
+        command: SequenceNotStr[str] | Omit = omit,
+        docker_image: str | Omit = omit,
+        secrets: Dict[str, str] | Omit = omit,
+        space_id: str | Omit = omit,
+        timeout_seconds: Optional[int] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JobStartResponse:
         """
         Start a job
@@ -239,7 +239,7 @@ class JobsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Stream the events of a job, using SSE
@@ -276,7 +276,7 @@ class JobsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Stream the logs of a job, using SSE
@@ -313,7 +313,7 @@ class JobsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Stream the metrics of a job, using SSE
@@ -371,7 +371,7 @@ class AsyncJobsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JobRetrieveResponse:
         """
         Get a job
@@ -406,7 +406,7 @@ class AsyncJobsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JobListResponse:
         """
         List of jobs for an entity
@@ -440,7 +440,7 @@ class AsyncJobsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JobCancelResponse:
         """
         Cancel a job
@@ -493,19 +493,19 @@ class AsyncJobsResource(AsyncAPIResource):
             "h100x8",
             "inf2x6",
         ],
-        arch: Literal["amd64", "arm64"] | NotGiven = NOT_GIVEN,
-        arguments: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        command: SequenceNotStr[str] | NotGiven = NOT_GIVEN,
-        docker_image: str | NotGiven = NOT_GIVEN,
-        secrets: Dict[str, str] | NotGiven = NOT_GIVEN,
-        space_id: str | NotGiven = NOT_GIVEN,
-        timeout_seconds: Optional[int] | NotGiven = NOT_GIVEN,
+        arch: Literal["amd64", "arm64"] | Omit = omit,
+        arguments: SequenceNotStr[str] | Omit = omit,
+        command: SequenceNotStr[str] | Omit = omit,
+        docker_image: str | Omit = omit,
+        secrets: Dict[str, str] | Omit = omit,
+        space_id: str | Omit = omit,
+        timeout_seconds: Optional[int] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> JobStartResponse:
         """
         Start a job
@@ -553,7 +553,7 @@ class AsyncJobsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Stream the events of a job, using SSE
@@ -590,7 +590,7 @@ class AsyncJobsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Stream the logs of a job, using SSE
@@ -627,7 +627,7 @@ class AsyncJobsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Stream the metrics of a job, using SSE
