@@ -23,7 +23,7 @@ from .branch import (
     BranchResourceWithStreamingResponse,
     AsyncBranchResourceWithStreamingResponse,
 )
-from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven, SequenceNotStr
+from ...._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
 from ...._utils import maybe_transform, async_maybe_transform
 from .lfs_files import (
     LFSFilesResource,
@@ -132,14 +132,14 @@ class DatasetsResource(SyncAPIResource):
         namespace: str,
         repo: str,
         files: Iterable[dataset_check_preupload_params.File],
-        git_attributes: str | NotGiven = NOT_GIVEN,
-        git_ignore: str | NotGiven = NOT_GIVEN,
+        git_attributes: str | Omit = omit,
+        git_ignore: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetCheckPreuploadResponse:
         """
         Check if a file should be uploaded through the Large File mechanism or directly.
@@ -190,13 +190,13 @@ class DatasetsResource(SyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        create_pr: object | NotGiven = NOT_GIVEN,
+        create_pr: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetCommitResponse:
         """
         For legacy reason, we support both `application/json` and `application/x-ndjson`
@@ -307,13 +307,13 @@ class DatasetsResource(SyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        raw: object | NotGiven = NOT_GIVEN,
+        raw: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> str:
         """
         Get a compare rev
@@ -357,7 +357,7 @@ class DatasetsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetGetNotebookURLResponse:
         """
         Get a jupyter notebook URL
@@ -404,7 +404,7 @@ class DatasetsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetGetSecurityStatusResponse:
         """
         Get the security status of a repo
@@ -441,7 +441,7 @@ class DatasetsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetGetXetReadTokenResponse:
         """
         Get a read short-lived access token for XET
@@ -480,7 +480,7 @@ class DatasetsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetGetXetWriteTokenResponse:
         """
         Get a write short-lived access token for XET
@@ -514,15 +514,15 @@ class DatasetsResource(SyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        expand: List[Literal["formatted"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
+        expand: List[Literal["formatted"]] | Omit = omit,
+        limit: int | Omit = omit,
+        p: int | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetListCommitsResponse:
         """
         List commits
@@ -574,7 +574,7 @@ class DatasetsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetListPathsInfoResponse:
         """
         List paths info
@@ -616,13 +616,13 @@ class DatasetsResource(SyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        include_prs: object | NotGiven = NOT_GIVEN,
+        include_prs: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetListRefsResponse:
         """
         List references
@@ -659,16 +659,16 @@ class DatasetsResource(SyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        expand: object | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        recursive: object | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        expand: object | Omit = omit,
+        limit: int | Omit = omit,
+        recursive: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetListTreeContentResponse:
         """
         List the content of a repository tree, with pagination support.
@@ -725,13 +725,13 @@ class DatasetsResource(SyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        message: str | NotGiven = NOT_GIVEN,
+        message: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetSuperSquashResponse:
         """
         This will squash all commits in the current ref into a single commit with the
@@ -766,18 +766,18 @@ class DatasetsResource(SyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        discussions_disabled: bool | NotGiven = NOT_GIVEN,
-        gated: Union[Literal["auto", "manual"], object] | NotGiven = NOT_GIVEN,
-        gated_notifications_email: str | NotGiven = NOT_GIVEN,
-        gated_notifications_mode: Literal["bulk", "real-time"] | NotGiven = NOT_GIVEN,
-        private: bool | NotGiven = NOT_GIVEN,
-        xet_enabled: bool | NotGiven = NOT_GIVEN,
+        discussions_disabled: bool | Omit = omit,
+        gated: Union[Literal["auto", "manual"], object] | Omit = omit,
+        gated_notifications_email: str | Omit = omit,
+        gated_notifications_mode: Literal["bulk", "real-time"] | Omit = omit,
+        private: bool | Omit = omit,
+        xet_enabled: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetUpdateSettingsResponse:
         """
         Update the settings of a repo
@@ -862,14 +862,14 @@ class AsyncDatasetsResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         files: Iterable[dataset_check_preupload_params.File],
-        git_attributes: str | NotGiven = NOT_GIVEN,
-        git_ignore: str | NotGiven = NOT_GIVEN,
+        git_attributes: str | Omit = omit,
+        git_ignore: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetCheckPreuploadResponse:
         """
         Check if a file should be uploaded through the Large File mechanism or directly.
@@ -920,13 +920,13 @@ class AsyncDatasetsResource(AsyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        create_pr: object | NotGiven = NOT_GIVEN,
+        create_pr: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetCommitResponse:
         """
         For legacy reason, we support both `application/json` and `application/x-ndjson`
@@ -1037,13 +1037,13 @@ class AsyncDatasetsResource(AsyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        raw: object | NotGiven = NOT_GIVEN,
+        raw: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> str:
         """
         Get a compare rev
@@ -1087,7 +1087,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetGetNotebookURLResponse:
         """
         Get a jupyter notebook URL
@@ -1134,7 +1134,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetGetSecurityStatusResponse:
         """
         Get the security status of a repo
@@ -1171,7 +1171,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetGetXetReadTokenResponse:
         """
         Get a read short-lived access token for XET
@@ -1210,7 +1210,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetGetXetWriteTokenResponse:
         """
         Get a write short-lived access token for XET
@@ -1244,15 +1244,15 @@ class AsyncDatasetsResource(AsyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        expand: List[Literal["formatted"]] | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        p: int | NotGiven = NOT_GIVEN,
+        expand: List[Literal["formatted"]] | Omit = omit,
+        limit: int | Omit = omit,
+        p: int | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetListCommitsResponse:
         """
         List commits
@@ -1304,7 +1304,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetListPathsInfoResponse:
         """
         List paths info
@@ -1346,13 +1346,13 @@ class AsyncDatasetsResource(AsyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        include_prs: object | NotGiven = NOT_GIVEN,
+        include_prs: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetListRefsResponse:
         """
         List references
@@ -1391,16 +1391,16 @@ class AsyncDatasetsResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        cursor: str | NotGiven = NOT_GIVEN,
-        expand: object | NotGiven = NOT_GIVEN,
-        limit: int | NotGiven = NOT_GIVEN,
-        recursive: object | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        expand: object | Omit = omit,
+        limit: int | Omit = omit,
+        recursive: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetListTreeContentResponse:
         """
         List the content of a repository tree, with pagination support.
@@ -1457,13 +1457,13 @@ class AsyncDatasetsResource(AsyncAPIResource):
         *,
         namespace: str,
         repo: str,
-        message: str | NotGiven = NOT_GIVEN,
+        message: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetSuperSquashResponse:
         """
         This will squash all commits in the current ref into a single commit with the
@@ -1500,18 +1500,18 @@ class AsyncDatasetsResource(AsyncAPIResource):
         repo: str,
         *,
         namespace: str,
-        discussions_disabled: bool | NotGiven = NOT_GIVEN,
-        gated: Union[Literal["auto", "manual"], object] | NotGiven = NOT_GIVEN,
-        gated_notifications_email: str | NotGiven = NOT_GIVEN,
-        gated_notifications_mode: Literal["bulk", "real-time"] | NotGiven = NOT_GIVEN,
-        private: bool | NotGiven = NOT_GIVEN,
-        xet_enabled: bool | NotGiven = NOT_GIVEN,
+        discussions_disabled: bool | Omit = omit,
+        gated: Union[Literal["auto", "manual"], object] | Omit = omit,
+        gated_notifications_email: str | Omit = omit,
+        gated_notifications_mode: Literal["bulk", "real-time"] | Omit = omit,
+        private: bool | Omit = omit,
+        xet_enabled: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> DatasetUpdateSettingsResponse:
         """
         Update the settings of a repo

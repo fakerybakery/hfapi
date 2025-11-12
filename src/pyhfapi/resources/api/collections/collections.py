@@ -15,7 +15,7 @@ from .items import (
     ItemsResourceWithStreamingResponse,
     AsyncItemsResourceWithStreamingResponse,
 )
-from ...._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven, SequenceNotStr
+from ...._types import Body, Omit, Query, Headers, NoneType, NotGiven, SequenceNotStr, omit, not_given
 from ...._utils import maybe_transform, async_maybe_transform
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
@@ -64,15 +64,15 @@ class CollectionsResource(SyncAPIResource):
         *,
         namespace: str,
         title: str,
-        description: str | NotGiven = NOT_GIVEN,
-        item: collection_create_params.Item | NotGiven = NOT_GIVEN,
-        private: bool | NotGiven = NOT_GIVEN,
+        description: str | Omit = omit,
+        item: collection_create_params.Item | Omit = omit,
+        private: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CollectionCreateResponse:
         """
         Create a collection
@@ -113,18 +113,18 @@ class CollectionsResource(SyncAPIResource):
         *,
         namespace: str,
         slug: str,
-        description: str | NotGiven = NOT_GIVEN,
-        gating: collection_update_params.Gating | NotGiven = NOT_GIVEN,
-        position: int | NotGiven = NOT_GIVEN,
-        private: bool | NotGiven = NOT_GIVEN,
-        theme: Literal["orange", "blue", "green", "purple", "pink", "indigo"] | NotGiven = NOT_GIVEN,
-        title: str | NotGiven = NOT_GIVEN,
+        description: str | Omit = omit,
+        gating: collection_update_params.Gating | Omit = omit,
+        position: int | Omit = omit,
+        private: bool | Omit = omit,
+        theme: Literal["orange", "blue", "green", "purple", "pink", "indigo"] | Omit = omit,
+        title: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CollectionUpdateResponse:
         """
         Update a collection
@@ -166,19 +166,19 @@ class CollectionsResource(SyncAPIResource):
     def list(
         self,
         *,
-        cursor: str | NotGiven = NOT_GIVEN,
-        expand: object | NotGiven = NOT_GIVEN,
-        item: Union[SequenceNotStr[str], str] | NotGiven = NOT_GIVEN,
-        limit: float | NotGiven = NOT_GIVEN,
-        owner: Union[SequenceNotStr[str], str] | NotGiven = NOT_GIVEN,
-        q: str | NotGiven = NOT_GIVEN,
-        sort: Literal["upvotes", "lastModified", "trending"] | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        expand: object | Omit = omit,
+        item: Union[SequenceNotStr[str], str] | Omit = omit,
+        limit: float | Omit = omit,
+        owner: Union[SequenceNotStr[str], str] | Omit = omit,
+        q: str | Omit = omit,
+        sort: Literal["upvotes", "lastModified", "trending"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CollectionListResponse:
         """
         Get collections
@@ -231,7 +231,7 @@ class CollectionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Delete a collection
@@ -271,7 +271,7 @@ class CollectionsResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CollectionGetResponse:
         """
         Get a collection
@@ -329,15 +329,15 @@ class AsyncCollectionsResource(AsyncAPIResource):
         *,
         namespace: str,
         title: str,
-        description: str | NotGiven = NOT_GIVEN,
-        item: collection_create_params.Item | NotGiven = NOT_GIVEN,
-        private: bool | NotGiven = NOT_GIVEN,
+        description: str | Omit = omit,
+        item: collection_create_params.Item | Omit = omit,
+        private: bool | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CollectionCreateResponse:
         """
         Create a collection
@@ -378,18 +378,18 @@ class AsyncCollectionsResource(AsyncAPIResource):
         *,
         namespace: str,
         slug: str,
-        description: str | NotGiven = NOT_GIVEN,
-        gating: collection_update_params.Gating | NotGiven = NOT_GIVEN,
-        position: int | NotGiven = NOT_GIVEN,
-        private: bool | NotGiven = NOT_GIVEN,
-        theme: Literal["orange", "blue", "green", "purple", "pink", "indigo"] | NotGiven = NOT_GIVEN,
-        title: str | NotGiven = NOT_GIVEN,
+        description: str | Omit = omit,
+        gating: collection_update_params.Gating | Omit = omit,
+        position: int | Omit = omit,
+        private: bool | Omit = omit,
+        theme: Literal["orange", "blue", "green", "purple", "pink", "indigo"] | Omit = omit,
+        title: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CollectionUpdateResponse:
         """
         Update a collection
@@ -431,19 +431,19 @@ class AsyncCollectionsResource(AsyncAPIResource):
     async def list(
         self,
         *,
-        cursor: str | NotGiven = NOT_GIVEN,
-        expand: object | NotGiven = NOT_GIVEN,
-        item: Union[SequenceNotStr[str], str] | NotGiven = NOT_GIVEN,
-        limit: float | NotGiven = NOT_GIVEN,
-        owner: Union[SequenceNotStr[str], str] | NotGiven = NOT_GIVEN,
-        q: str | NotGiven = NOT_GIVEN,
-        sort: Literal["upvotes", "lastModified", "trending"] | NotGiven = NOT_GIVEN,
+        cursor: str | Omit = omit,
+        expand: object | Omit = omit,
+        item: Union[SequenceNotStr[str], str] | Omit = omit,
+        limit: float | Omit = omit,
+        owner: Union[SequenceNotStr[str], str] | Omit = omit,
+        q: str | Omit = omit,
+        sort: Literal["upvotes", "lastModified", "trending"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CollectionListResponse:
         """
         Get collections
@@ -496,7 +496,7 @@ class AsyncCollectionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Delete a collection
@@ -536,7 +536,7 @@ class AsyncCollectionsResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> CollectionGetResponse:
         """
         Get a collection

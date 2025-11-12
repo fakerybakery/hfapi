@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import httpx
 
-from ....._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
+from ....._types import Body, Omit, Query, Headers, NoneType, NotGiven, omit, not_given
 from ....._utils import maybe_transform, async_maybe_transform
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
@@ -45,13 +45,13 @@ class UsageResource(SyncAPIResource):
     def get(
         self,
         *,
-        period_id: str | NotGiven = NOT_GIVEN,
+        period_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UsageGetResponse:
         """
         Get user usage for a given period
@@ -85,7 +85,7 @@ class UsageResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UsageGetJobsResponse:
         """Get user Jobs usage for current subscription period"""
         return self._get(
@@ -104,7 +104,7 @@ class UsageResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """Get live usage for user"""
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
@@ -140,13 +140,13 @@ class AsyncUsageResource(AsyncAPIResource):
     async def get(
         self,
         *,
-        period_id: str | NotGiven = NOT_GIVEN,
+        period_id: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UsageGetResponse:
         """
         Get user usage for a given period
@@ -180,7 +180,7 @@ class AsyncUsageResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> UsageGetJobsResponse:
         """Get user Jobs usage for current subscription period"""
         return await self._get(
@@ -199,7 +199,7 @@ class AsyncUsageResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """Get live usage for user"""
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}

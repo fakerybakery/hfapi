@@ -6,7 +6,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ..._utils import is_given, strip_not_given
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -51,14 +51,14 @@ class ResolveCacheResource(SyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        accept: Literal["application/vnd.xet-fileinfo+json"] | NotGiven = NOT_GIVEN,
-        range: str | NotGiven = NOT_GIVEN,
+        accept: Literal["application/vnd.xet-fileinfo+json"] | Omit = omit,
+        range: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResolveCacheResolveDatasetResponse:
         """
         This endpoint requires to follow redirection
@@ -89,7 +89,7 @@ class ResolveCacheResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else NOT_GIVEN,
+                    "Accept": str(accept) if is_given(accept) else not_given,
                     "Range": range,
                 }
             ),
@@ -110,14 +110,14 @@ class ResolveCacheResource(SyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        accept: Literal["application/vnd.xet-fileinfo+json"] | NotGiven = NOT_GIVEN,
-        range: str | NotGiven = NOT_GIVEN,
+        accept: Literal["application/vnd.xet-fileinfo+json"] | Omit = omit,
+        range: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResolveCacheResolveModelResponse:
         """
         This endpoint requires to follow redirection
@@ -148,7 +148,7 @@ class ResolveCacheResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else NOT_GIVEN,
+                    "Accept": str(accept) if is_given(accept) else not_given,
                     "Range": range,
                 }
             ),
@@ -169,14 +169,14 @@ class ResolveCacheResource(SyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        accept: Literal["application/vnd.xet-fileinfo+json"] | NotGiven = NOT_GIVEN,
-        range: str | NotGiven = NOT_GIVEN,
+        accept: Literal["application/vnd.xet-fileinfo+json"] | Omit = omit,
+        range: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResolveCacheResolveSpaceResponse:
         """
         This endpoint requires to follow redirection
@@ -207,7 +207,7 @@ class ResolveCacheResource(SyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else NOT_GIVEN,
+                    "Accept": str(accept) if is_given(accept) else not_given,
                     "Range": range,
                 }
             ),
@@ -249,14 +249,14 @@ class AsyncResolveCacheResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        accept: Literal["application/vnd.xet-fileinfo+json"] | NotGiven = NOT_GIVEN,
-        range: str | NotGiven = NOT_GIVEN,
+        accept: Literal["application/vnd.xet-fileinfo+json"] | Omit = omit,
+        range: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResolveCacheResolveDatasetResponse:
         """
         This endpoint requires to follow redirection
@@ -287,7 +287,7 @@ class AsyncResolveCacheResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else NOT_GIVEN,
+                    "Accept": str(accept) if is_given(accept) else not_given,
                     "Range": range,
                 }
             ),
@@ -308,14 +308,14 @@ class AsyncResolveCacheResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        accept: Literal["application/vnd.xet-fileinfo+json"] | NotGiven = NOT_GIVEN,
-        range: str | NotGiven = NOT_GIVEN,
+        accept: Literal["application/vnd.xet-fileinfo+json"] | Omit = omit,
+        range: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResolveCacheResolveModelResponse:
         """
         This endpoint requires to follow redirection
@@ -346,7 +346,7 @@ class AsyncResolveCacheResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else NOT_GIVEN,
+                    "Accept": str(accept) if is_given(accept) else not_given,
                     "Range": range,
                 }
             ),
@@ -367,14 +367,14 @@ class AsyncResolveCacheResource(AsyncAPIResource):
         namespace: str,
         repo: str,
         rev: str,
-        accept: Literal["application/vnd.xet-fileinfo+json"] | NotGiven = NOT_GIVEN,
-        range: str | NotGiven = NOT_GIVEN,
+        accept: Literal["application/vnd.xet-fileinfo+json"] | Omit = omit,
+        range: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> ResolveCacheResolveSpaceResponse:
         """
         This endpoint requires to follow redirection
@@ -405,7 +405,7 @@ class AsyncResolveCacheResource(AsyncAPIResource):
         extra_headers = {
             **strip_not_given(
                 {
-                    "Accept": str(accept) if is_given(accept) else NOT_GIVEN,
+                    "Accept": str(accept) if is_given(accept) else not_given,
                     "Range": range,
                 }
             ),

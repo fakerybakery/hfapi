@@ -7,7 +7,7 @@ from typing_extensions import Literal
 
 import httpx
 
-from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ...._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ...._utils import maybe_transform, async_maybe_transform
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
@@ -54,15 +54,15 @@ class WebhooksResource(SyncAPIResource):
         *,
         domains: List[Literal["repo", "discussion"]],
         watched: Iterable[webhook_create_params.Watched],
-        job: webhook_create_params.Job | NotGiven = NOT_GIVEN,
-        secret: str | NotGiven = NOT_GIVEN,
-        url: str | NotGiven = NOT_GIVEN,
+        job: webhook_create_params.Job | Omit = omit,
+        secret: str | Omit = omit,
+        url: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookCreateResponse:
         """
         Create webhook
@@ -103,7 +103,7 @@ class WebhooksResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookRetrieveResponse:
         """
         Get webhook
@@ -133,15 +133,15 @@ class WebhooksResource(SyncAPIResource):
         *,
         domains: List[Literal["repo", "discussion"]],
         watched: Iterable[webhook_update_params.Watched],
-        job: webhook_update_params.Job | NotGiven = NOT_GIVEN,
-        secret: str | NotGiven = NOT_GIVEN,
-        url: str | NotGiven = NOT_GIVEN,
+        job: webhook_update_params.Job | Omit = omit,
+        secret: str | Omit = omit,
+        url: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookUpdateResponse:
         """
         Update webhook
@@ -183,7 +183,7 @@ class WebhooksResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookListResponse:
         """List webhooks"""
         return self._get(
@@ -203,7 +203,7 @@ class WebhooksResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Delete webhook
@@ -237,7 +237,7 @@ class WebhooksResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookReplayLogResponse:
         """
         Replay webhook log
@@ -273,7 +273,7 @@ class WebhooksResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookToggleResponse:
         """
         Enable/disable webhook
@@ -325,15 +325,15 @@ class AsyncWebhooksResource(AsyncAPIResource):
         *,
         domains: List[Literal["repo", "discussion"]],
         watched: Iterable[webhook_create_params.Watched],
-        job: webhook_create_params.Job | NotGiven = NOT_GIVEN,
-        secret: str | NotGiven = NOT_GIVEN,
-        url: str | NotGiven = NOT_GIVEN,
+        job: webhook_create_params.Job | Omit = omit,
+        secret: str | Omit = omit,
+        url: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookCreateResponse:
         """
         Create webhook
@@ -374,7 +374,7 @@ class AsyncWebhooksResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookRetrieveResponse:
         """
         Get webhook
@@ -404,15 +404,15 @@ class AsyncWebhooksResource(AsyncAPIResource):
         *,
         domains: List[Literal["repo", "discussion"]],
         watched: Iterable[webhook_update_params.Watched],
-        job: webhook_update_params.Job | NotGiven = NOT_GIVEN,
-        secret: str | NotGiven = NOT_GIVEN,
-        url: str | NotGiven = NOT_GIVEN,
+        job: webhook_update_params.Job | Omit = omit,
+        secret: str | Omit = omit,
+        url: str | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookUpdateResponse:
         """
         Update webhook
@@ -454,7 +454,7 @@ class AsyncWebhooksResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookListResponse:
         """List webhooks"""
         return await self._get(
@@ -474,7 +474,7 @@ class AsyncWebhooksResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Delete webhook
@@ -508,7 +508,7 @@ class AsyncWebhooksResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookReplayLogResponse:
         """
         Replay webhook log
@@ -544,7 +544,7 @@ class AsyncWebhooksResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> WebhookToggleResponse:
         """
         Enable/disable webhook
